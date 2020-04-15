@@ -10,6 +10,44 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/', 'DashboardController@index')->name('dashboard');
 
+    Route::name('customers')->prefix('customers')->group(function () {
+        Route::get('/', 'CustomerController@index');
+        Route::post('/', 'CustomerController@store')->middleware('ajax');
+        Route::put('/', 'CustomerController@update')->middleware('ajax');
+        Route::delete('/', 'CustomerController@destroy')->middleware('ajax');
+
+        Route::get('/data', 'CustomerController@data')->name('.data')->middleware('ajax');
+        Route::post('/show', 'CustomerController@show')->name('.show')->middleware('ajax');
+
+        Route::get('/{customer:phone}/orders', 'CustomerController@customerOrders')->name('.orders')->middleware('ajax');
+        Route::get('/{customer:phone}', 'CustomerController@detail')->name('.detail');
+    });
+
+    Route::name('orders')->prefix('orders')->group(function () {
+        Route::get('/', 'OrderController@index');
+        Route::post('/', 'OrderController@store')->middleware('ajax');
+        Route::put('/', 'OrderController@update')->middleware('ajax');
+        Route::delete('/', 'OrderController@destroy')->middleware('ajax');
+
+        // Route::get('/data', 'OrderController@data')->name('.data')->middleware('ajax');
+        Route::get('/data/{filter?}', 'OrderController@data')->name('.data')->middleware('ajax');
+        Route::post('/show', 'OrderController@show')->name('.show')->middleware('ajax');
+        Route::put('/cost', 'OrderController@changeCost')->name('.cost')->middleware('ajax');
+        Route::put('/status', 'OrderController@changeStatus')->name('.status')->middleware('ajax');
+        Route::put('/comment', 'OrderController@changeComment')->name('.comment')->middleware('ajax');
+
+        Route::get('/create', 'OrderController@create')->name('.create');
+        Route::post('/select2/customers', 'OrderController@select2Customers')->name('.select2.customers')->middleware('ajax');
+
+        Route::get('/{order}/history', 'OrderController@history')->name('.history');
+        Route::post('/{order}/history', 'OrderController@getHistory')->name('.history');
+    });
+
+    Route::name('invoice')->prefix('invoice')->group(function () {
+        Route::get('/{order}/print', 'InvoiceController@print')->name('.print');
+        Route::get('/{order}', 'InvoiceController@index');
+    });
+
     Route::name('account')->prefix('account')->group(function () {
         Route::get('/', 'AccountController@index');
         Route::put('/', 'AccountController@update')->middleware('ajax');

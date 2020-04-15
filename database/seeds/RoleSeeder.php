@@ -17,6 +17,9 @@ class RoleSeeder extends Seeder
         try {
             $roles = [
                 ['name' => 'developer', 'default_user' => 0, 'login_destination' => '/'],
+                ['name' => 'admin', 'default_user' => 0, 'login_destination' => '/'],
+                ['name' => 'teknisi', 'default_user' => 0, 'login_destination' => '/'],
+                ['name' => 'customer_service', 'default_user' => 0, 'login_destination' => '/'],
             ];
 
             foreach ($roles as $role) {

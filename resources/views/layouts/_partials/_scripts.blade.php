@@ -110,6 +110,36 @@
             location.reload();
         }
     }
+
+    function isNumber(evt)
+    {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+
+    function setRupiah(data, id) {
+        if(data == 0 || data == null) {
+            $('#' + id).val(('Rp. 0'));
+            return;
+        }
+        var number_string = data.replace(/[^,\d]/g, '').toString(),
+            split 	= number_string.split(','),
+            sisa 	= split[0].length % 3,
+            rupiah 	= split[0].substr(0, sisa),
+            ribuan 	= split[0].substr(sisa).match(/\d{3}/gi);
+
+        if(ribuan) {
+            separator = sisa ? '.' : '';
+            rupiah += separator + ribuan.join('.');
+        }
+
+        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+        $('#' + id).val(('Rp. ' == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '')));
+    }
 </script>
 
 @yield('js-script')
