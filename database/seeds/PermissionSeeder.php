@@ -45,6 +45,11 @@ class PermissionSeeder extends Seeder
                 ['name' => 'order.cost'],
                 ['name' => 'order.comment'],
                 ['name' => 'order.status'],
+                ['name' => 'order.handphone'],
+                ['name' => 'order.laptop'],
+                ['name' => 'order.printer'],
+                ['name' => 'order.komputer'],
+                ['name' => 'order.powerbank'],
             ];
 
             foreach ($permissions as $key => $permission) {
@@ -55,10 +60,35 @@ class PermissionSeeder extends Seeder
                     $create->assignRole('admin');
 
                     if($key == 15 || $key == 19 || $key == 22 || $key == 23){
-                        $create->assignRole('teknisi');
+                        $create->assignRole('teknisi_handphone');
+                        $create->assignRole('teknisi_laptop');
+                        $create->assignRole('teknisi_printer');
+                        $create->assignRole('teknisi_komputer');
+                        $create->assignRole('teknisi_powerbank');
                     }
 
                     if($key >= 14 && $key <= 20) {
+                        $create->assignRole('customer_service');
+                    }
+
+                    if($key == 25){
+                        $create->assignRole('teknisi_handphone');
+                        $create->assignRole('customer_service');
+                    }
+                    if($key == 26){
+                        $create->assignRole('teknisi_laptop');
+                        $create->assignRole('customer_service');
+                    }
+                    if($key == 27){
+                        $create->assignRole('teknisi_printer');
+                        $create->assignRole('customer_service');
+                    }
+                    if($key == 28){
+                        $create->assignRole('teknisi_komputer');
+                        $create->assignRole('customer_service');
+                    }
+                    if($key == 29){
+                        $create->assignRole('teknisi_powerbank');
                         $create->assignRole('customer_service');
                     }
                 }

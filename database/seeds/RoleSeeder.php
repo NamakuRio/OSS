@@ -18,7 +18,11 @@ class RoleSeeder extends Seeder
             $roles = [
                 ['name' => 'developer', 'default_user' => 0, 'login_destination' => '/'],
                 ['name' => 'admin', 'default_user' => 0, 'login_destination' => '/'],
-                ['name' => 'teknisi', 'default_user' => 0, 'login_destination' => '/'],
+                ['name' => 'teknisi_handphone', 'default_user' => 0, 'login_destination' => '/'],
+                ['name' => 'teknisi_laptop', 'default_user' => 0, 'login_destination' => '/'],
+                ['name' => 'teknisi_printer', 'default_user' => 0, 'login_destination' => '/'],
+                ['name' => 'teknisi_komputer', 'default_user' => 0, 'login_destination' => '/'],
+                ['name' => 'teknisi_powerbank', 'default_user' => 0, 'login_destination' => '/'],
                 ['name' => 'customer_service', 'default_user' => 0, 'login_destination' => '/'],
             ];
 
