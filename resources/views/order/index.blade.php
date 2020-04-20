@@ -38,6 +38,7 @@
                                             <th class="text-center" width="10">
                                                 #
                                             </th>
+                                            <th>ID Pesanan</th>
                                             <th>Pelanggan</th>
                                             <th>Jenis</th>
                                             <th>Merek</th>
@@ -70,6 +71,7 @@
                                             <th class="text-center" width="10">
                                                 #
                                             </th>
+                                            <th>ID Pesanan</th>
                                             <th>Pelanggan</th>
                                             <th>Jenis</th>
                                             <th>Merek</th>
@@ -412,6 +414,7 @@
                 destroy: true,
                 columns: [
                     { data: 'DT_RowIndex' },
+                    { data: 'id' },
                     { data: 'customer_name' },
                     { data: 'type' },
                     { data: 'merk' },
@@ -465,6 +468,7 @@
                 destroy: true,
                 columns: [
                     { data: 'DT_RowIndex' },
+                    { data: 'id' },
                     { data: 'customer_name' },
                     { data: 'type' },
                     { data: 'merk' },

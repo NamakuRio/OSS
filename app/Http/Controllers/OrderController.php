@@ -128,7 +128,7 @@ class OrderController extends Controller
             ->editColumn('cost', function ($order) {
                 $cost = "";
 
-                $cost = "Rp. " . ($order->cost == null ? number_format(0) : number_format($order->cost));
+                $cost = "<span class='text-danger'>Rp. " . ($order->cost == null ? number_format(0) : number_format($order->cost)) . "</span>";
                 if(auth()->user()->can('order.cost')) $cost .= " <a href='javascript:void(0);' tooltip='Ubah harga Pesanan' data-id='{$order->id}' onclick='getChangeCostOrder(this);'><i class='far fa-edit'></i></a>";
 
                 return $cost;
@@ -136,7 +136,7 @@ class OrderController extends Controller
             ->editColumn('comment', function ($order) {
                 $comment = "";
 
-                $comment = ($order->comment ?? null);
+                $comment = "<span class='text-danger'>" . ($order->comment ?? null) . "</span>";
                 if(auth()->user()->can('order.comment')) $comment .= " <a href='javascript:void(0);' tooltip='Ubah komentar Pesanan' data-id='{$order->id}' onclick='getChangeCommentOrder(this);'><i class='far fa-edit'></i></a>";
 
                 return $comment;

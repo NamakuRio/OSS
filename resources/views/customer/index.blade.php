@@ -38,6 +38,7 @@
                                             <th class="text-center" width="10">
                                                 #
                                             </th>
+                                            <th>ID Pelanggan</th>
                                             <th>NIK</th>
                                             <th>Nama</th>
                                             <th>Tanggal Lahir</th>
@@ -179,6 +180,7 @@
                 destroy: true,
                 columns: [
                     { data: 'DT_RowIndex' },
+                    { data: 'id' },
                     { data: 'nik' },
                     { data: 'name' },
                     { data: 'date_of_birth' },
