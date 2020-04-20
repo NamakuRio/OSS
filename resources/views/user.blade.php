@@ -208,7 +208,7 @@
             $('#add-user-role-id').select2({
                 width: '100%',
                 placeholder: 'Pilih Peran',
-                minimumInputLength: 1,
+                // minimumInputLength: 1,
                 ajax: {
                     url: "@route('users.select2.roles')",
                     type: "POST",
@@ -247,7 +247,7 @@
             $('#update-user-role-id').select2({
                 width: '100%',
                 placeholder: 'Pilih Peran',
-                minimumInputLength: 1,
+                // minimumInputLength: 1,
                 ajax: {
                     url: "@route('users.select2.roles')",
                     type: "POST",
