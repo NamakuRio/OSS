@@ -23,7 +23,7 @@ class Order extends Model
         return $this->HasMany(OrderHistory::class);
     }
 
-    public function triggerHistory($type = 'create', $description = 'Pesanan dibuat.')
+    public function triggerHistory($type = 'create', $description = 'Servis dibuat.')
     {
         $data = [
             'user_id' => auth()->user()->id,

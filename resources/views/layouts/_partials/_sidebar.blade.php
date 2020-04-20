@@ -13,7 +13,7 @@
                 <li class="{{ Request::route()->getName() == 'customers' ? 'active' : '' }}"><a class="nav-link" href="@route('customers')"><i class="fas fa-users"></i><span>Pelanggan</span></a></li>
             @endcan
             @can('order.view')
-                <li class="{{ Request::route()->getName() == 'orders' ? 'active' : '' }}"><a class="nav-link" href="@route('orders')"><i class="far fa-list-alt"></i><span>Pesanan</span></a></li>
+                <li class="{{ Request::route()->getName() == 'orders' ? 'active' : '' }}"><a class="nav-link" href="@route('orders')"><i class="far fa-list-alt"></i><span>Servis</span></a></li>
             @endcan
             <li class="menu-header">Lainnya</li>
             <li class="{{ Request::route()->getName() == 'account' ? 'active' : '' }}"><a class="nav-link" href="@route('account')"><i class="far fa-user"></i> <span>Akun</span></a></li>

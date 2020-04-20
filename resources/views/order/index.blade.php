@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Pesanan')
+@section('title', 'Servis')
 
 @section('css-library')
     <link rel="stylesheet" href="@asset('assets/modules/datatables/datatables.min.css')">
@@ -12,10 +12,10 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Pesanan</h1>
+            <h1>Servis</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="@route('dashboard')">Beranda</a></div>
-                <div class="breadcrumb-item">Pesanan</div>
+                <div class="breadcrumb-item">Servis</div>
             </div>
         </div>
         <div class="section-body">
@@ -23,10 +23,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Daftar Pesanan (Proses)</h4>
+                            <h4>Daftar Servis (Proses)</h4>
                             @can ('order.create')
                                 <div class="card-header-action">
-                                    <a href="javascript:void(0)" class="btn btn-primary" onclick="$('#modal-add-order').modal('show');" tooltip="Tambah Pesanan"><i class="fas fa-plus"></i> Tambah Pesanan</a>
+                                    <a href="javascript:void(0)" class="btn btn-primary" onclick="$('#modal-add-order').modal('show');" tooltip="Tambah Servis"><i class="fas fa-plus"></i> Tambah Servis</a>
                                 </div>
                             @endcan
                         </div>
@@ -38,7 +38,7 @@
                                             <th class="text-center" width="10">
                                                 #
                                             </th>
-                                            <th>ID Pesanan</th>
+                                            <th>ID Servis</th>
                                             <th>Pelanggan</th>
                                             <th>Jenis</th>
                                             <th>Merek</th>
@@ -61,7 +61,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Daftar Pesanan (Semua)</h4>
+                            <h4>Daftar Servis (Semua)</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -71,7 +71,7 @@
                                             <th class="text-center" width="10">
                                                 #
                                             </th>
-                                            <th>ID Pesanan</th>
+                                            <th>ID Servis</th>
                                             <th>Pelanggan</th>
                                             <th>Jenis</th>
                                             <th>Merek</th>
@@ -100,7 +100,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Tambah Pesanan</h5>
+                        <h5 class="modal-title">Tambah Servis</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -155,7 +155,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Perbarui Pesanan</h5>
+                        <h5 class="modal-title">Perbarui Servis</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -212,7 +212,7 @@
             <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Ubah Harga Pesanan</h5>
+                        <h5 class="modal-title">Ubah Harga Servis</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -243,7 +243,7 @@
             <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Ubah Komentar Pesanan</h5>
+                        <h5 class="modal-title">Ubah Komentar Servis</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -274,7 +274,7 @@
             <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Ubah Status Pesanan</h5>
+                        <h5 class="modal-title">Ubah Status Servis</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -543,8 +543,8 @@
                     success(result) {
                         if(result['status'] == 'success'){
                             Swal.fire({
-                                title: 'Pesanan berhasil dibuat',
-                                text: 'Apakah Anda ingin print pesanan?',
+                                title: 'Servis berhasil dibuat',
+                                text: 'Apakah Anda ingin print servis?',
                                 icon: 'warning',
                                 showCancelButton: true,
                                 confirmButtonColor:'#6777ef',
@@ -897,8 +897,8 @@
             {
                 var id = $(object).data('id');
                 Swal.fire({
-                    title: 'Anda yakin menghapus pesanan?',
-                    text: 'Semua data yang berhubungan dengan pesanan akan dihapus.',
+                    title: 'Anda yakin menghapus servis?',
+                    text: 'Semua data yang berhubungan dengan servis akan dihapus.',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',

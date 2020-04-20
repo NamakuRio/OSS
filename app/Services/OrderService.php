@@ -42,7 +42,7 @@ class OrderService
             $urlPrint = route('invoice.print', $order);
 
             DB::commit();
-            return ['status' => 'success', 'message' => 'Berhasil menambahkan pesanan.', 'print' => $urlPrint];
+            return ['status' => 'success', 'message' => 'Berhasil menambahkan servis.', 'print' => $urlPrint];
         }catch(Exception $e){
             DB::rollback();
             return ['status' => 'error', 'message' => $e->getMessage()];
@@ -55,10 +55,10 @@ class OrderService
         $order->load('customer');
 
         if (!$order) {
-            return ['status' => 'error', 'message' => 'Pesanan yang Anda cari tidak ditemukan.', 'data' => ''];
+            return ['status' => 'error', 'message' => 'Servis yang Anda cari tidak ditemukan.', 'data' => ''];
         }
 
-        return ['status' => 'success', 'message' => 'Berhasil mengambil data pesanan', 'data' => $order];
+        return ['status' => 'success', 'message' => 'Berhasil mengambil data servis', 'data' => $order];
     }
 
     public function update(Request $request)
@@ -85,11 +85,11 @@ class OrderService
 
             if (!$order) {
                 DB::rollback();
-                return ['status' => 'error', 'message' => 'Gagal memperbarui pesanan.'];
+                return ['status' => 'error', 'message' => 'Gagal memperbarui servis.'];
             }
 
             DB::commit();
-            return ['status' => 'success', 'message' => 'Berhasil memperbarui pesanan.'];
+            return ['status' => 'success', 'message' => 'Berhasil memperbarui servis.'];
         } catch (Exception $e) {
             DB::rollback();
             return ['status' => 'error', 'message' => $e->getMessage()];
@@ -101,7 +101,7 @@ class OrderService
         $order = Order::find($request->id);
 
         if (!$order) {
-            return ['status' => 'error', 'message' => 'Pesanan yang Anda cari tidak ditemukan.', 'data' => ''];
+            return ['status' => 'error', 'message' => 'Servis yang Anda cari tidak ditemukan.', 'data' => ''];
         }
 
         DB::beginTransaction();
@@ -116,11 +116,11 @@ class OrderService
 
             if (!$order) {
                 DB::rollback();
-                return ['status' => 'error', 'message' => 'Gagal memperbarui pesanan.'];
+                return ['status' => 'error', 'message' => 'Gagal memperbarui servis.'];
             }
 
             DB::commit();
-            return ['status' => 'success', 'message' => 'Berhasil memperbarui pesanan.'];
+            return ['status' => 'success', 'message' => 'Berhasil memperbarui servis.'];
         }catch(Exception $e){
             DB::rollback();
             return ['status' => 'error', 'message' => $e->getMessage()];
@@ -132,7 +132,7 @@ class OrderService
         $order = Order::find($request->id);
 
         if (!$order) {
-            return ['status' => 'error', 'message' => 'Pesanan yang Anda cari tidak ditemukan.', 'data' => ''];
+            return ['status' => 'error', 'message' => 'Servis yang Anda cari tidak ditemukan.', 'data' => ''];
         }
 
         DB::beginTransaction();
@@ -147,11 +147,11 @@ class OrderService
 
             if (!$order) {
                 DB::rollback();
-                return ['status' => 'error', 'message' => 'Gagal memperbarui pesanan.'];
+                return ['status' => 'error', 'message' => 'Gagal memperbarui servis.'];
             }
 
             DB::commit();
-            return ['status' => 'success', 'message' => 'Berhasil memperbarui pesanan.'];
+            return ['status' => 'success', 'message' => 'Berhasil memperbarui servis.'];
         }catch(Exception $e){
             DB::rollback();
             return ['status' => 'error', 'message' => $e->getMessage()];
@@ -163,7 +163,7 @@ class OrderService
         $order = Order::find($request->id);
 
         if (!$order) {
-            return ['status' => 'error', 'message' => 'Pesanan yang Anda cari tidak ditemukan.', 'data' => ''];
+            return ['status' => 'error', 'message' => 'Servis yang Anda cari tidak ditemukan.', 'data' => ''];
         }
 
         DB::beginTransaction();
@@ -178,11 +178,11 @@ class OrderService
 
             if (!$order) {
                 DB::rollback();
-                return ['status' => 'error', 'message' => 'Gagal memperbarui pesanan.'];
+                return ['status' => 'error', 'message' => 'Gagal memperbarui servis.'];
             }
 
             DB::commit();
-            return ['status' => 'success', 'message' => 'Berhasil memperbarui pesanan.'];
+            return ['status' => 'success', 'message' => 'Berhasil memperbarui servis.'];
         }catch(Exception $e){
             DB::rollback();
             return ['status' => 'error', 'message' => $e->getMessage()];
@@ -197,13 +197,13 @@ class OrderService
 
             if (!$order) {
                 DB::rollback();
-                return ['status' => 'error', 'message' => 'Pesanan tidak ditemukan.'];
+                return ['status' => 'error', 'message' => 'Servis tidak ditemukan.'];
             }
 
             $order->delete();
 
             DB::commit();
-            return ['status' => 'success', 'message' => 'Berhasil menghapus pesanan.'];
+            return ['status' => 'success', 'message' => 'Berhasil menghapus servis.'];
         } catch (Exception $e) {
             DB::rollback();
             return ['status' => 'error', 'message' => $e->getMessage()];
@@ -232,15 +232,15 @@ class OrderService
         $description = "";
 
         if($type == 'update'){
-            $description .= "Pesanan diubah.";
+            $description .= "Servis diubah.";
         } else if($type == 'cost'){
             $beforeCost = number_format($order->cost);
             $afterCost = number_format(getCost($request->cost));
-            $description .= "Ubah harga pesanan dari <code>Rp. {$beforeCost}</code> menjadi <code>Rp. {$afterCost}</code>";
+            $description .= "Ubah harga servis dari <code>Rp. {$beforeCost}</code> menjadi <code>Rp. {$afterCost}</code>";
         } else if($type == 'comment'){
             $beforeComment = $order->comment;
             $afterComment = $request->comment;
-            $description .= "Ubah komentar pesanan dari <code>{$beforeComment}</code> menjadi <code>{$afterComment}</code>";
+            $description .= "Ubah komentar servis dari <code>{$beforeComment}</code> menjadi <code>{$afterComment}</code>";
         } else if($type == 'status'){
             $beforeStatus = $order->status;
             $afterStatus = $request->status;
@@ -276,7 +276,7 @@ class OrderService
                 $afterBadge = 'badge-success';
                 $afterStatusText = 'Sudah Diambil';
             }
-            $description .= "Ubah status pesanan dari <span class='badge {$beforeBadge}'>{$beforeStatusText}</span> menjadi <span class='badge {$afterBadge}'>{$afterStatusText}</span>";
+            $description .= "Ubah status servis dari <span class='badge {$beforeBadge}'>{$beforeStatusText}</span> menjadi <span class='badge {$afterBadge}'>{$afterStatusText}</span>";
         }
 
         return $description;

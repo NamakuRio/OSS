@@ -33,7 +33,7 @@
                                     <div class="profile-widget-item-value">{{ ($customer->orders->count() == 0 ? 'Belum pernah pesan' : $customer->orders()->latest('created_at')->first()->created_at->diffForHumans()) }}</div>
                                 </div>
                                 <div class="profile-widget-item">
-                                    <div class="profile-widget-item-label">Pesanan</div>
+                                    <div class="profile-widget-item-label">Servis</div>
                                     <div class="profile-widget-item-value">{{ $customer->orders->count() }}</div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                 <div class="col-12 col-md-12 col-lg-7">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Riwayat Pesanan</h4>
+                            <h4>Riwayat Servis</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -69,7 +69,7 @@
                                             <th class="text-center" width="10">
                                                 #
                                             </th>
-                                            <th>ID Pesanan</th>
+                                            <th>ID Servis</th>
                                             <th>Pelanggan</th>
                                             <th>Jenis</th>
                                             <th>Merek</th>
@@ -98,7 +98,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Perbarui Pesanan</h5>
+                        <h5 class="modal-title">Perbarui Servis</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -155,7 +155,7 @@
             <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Ubah Harga Pesanan</h5>
+                        <h5 class="modal-title">Ubah Harga Servis</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -186,7 +186,7 @@
             <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Ubah Komentar Pesanan</h5>
+                        <h5 class="modal-title">Ubah Komentar Servis</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -217,7 +217,7 @@
             <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Ubah Status Pesanan</h5>
+                        <h5 class="modal-title">Ubah Status Servis</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -688,8 +688,8 @@
             {
                 var id = $(object).data('id');
                 Swal.fire({
-                    title: 'Anda yakin menghapus pesanan?',
-                    text: 'Semua data yang berhubungan dengan pesanan akan dihapus.',
+                    title: 'Anda yakin menghapus servis?',
+                    text: 'Semua data yang berhubungan dengan servis akan dihapus.',
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',

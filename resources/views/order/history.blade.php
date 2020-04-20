@@ -11,7 +11,7 @@
             <h1>Riwayat Perubahan</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="@route('dashboard')">Beranda</a></div>
-                <div class="breadcrumb-item active"><a href="@route('orders')">Pesanan</a></div>
+                <div class="breadcrumb-item active"><a href="@route('orders')">Servis</a></div>
                 <div class="breadcrumb-item">Riwayat Perubahan</div>
             </div>
         </div>

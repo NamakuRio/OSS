@@ -25,7 +25,7 @@
                                     <div class="profile-widget-item-value">{{ ($customer->orders->count() == 0 ? 'Belum pernah pesan' : $customer->orders()->latest('created_at')->first()->created_at->diffForHumans()) }}</div>
                                 </div>
                                 <div class="profile-widget-item">
-                                    <div class="profile-widget-item-label">Pesanan</div>
+                                    <div class="profile-widget-item-label">Servis</div>
                                     <div class="profile-widget-item-value">{{ $customer->orders->count() }}</div>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                 <div class="col-12 col-md-12 col-lg-7">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Riwayat Pesanan</h4>
+                            <h4>Riwayat Servis</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -61,7 +61,7 @@
                                             <th class="text-center" width="10">
                                                 #
                                             </th>
-                                            <th>ID Pesanan</th>
+                                            <th>ID Servis</th>
                                             <th>Pelanggan</th>
                                             <th>Jenis</th>
                                             <th>Merek</th>

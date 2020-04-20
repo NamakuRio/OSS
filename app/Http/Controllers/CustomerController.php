@@ -126,7 +126,7 @@ class CustomerController extends Controller
 
                 $cost = "<span class='text-danger'>Rp. " . ($order->cost == null ? number_format(0) : number_format($order->cost)) . "</span>";
                 if (auth()->user()) {
-                    if (auth()->user()->can('order.cost')) $cost .= " <a href='javascript:void(0);' tooltip='Ubah harga Pesanan' data-id='{$order->id}' onclick='getChangeCostOrder(this);'><i class='far fa-edit'></i></a>";
+                    if (auth()->user()->can('order.cost')) $cost .= " <a href='javascript:void(0);' tooltip='Ubah harga Servis' data-id='{$order->id}' onclick='getChangeCostOrder(this);'><i class='far fa-edit'></i></a>";
                 }
 
                 return $cost;
@@ -136,7 +136,7 @@ class CustomerController extends Controller
 
                 $comment = "<span class='text-danger'>" . ($order->comment ?? null) . "</span>";
                 if (auth()->user()) {
-                    if (auth()->user()->can('order.comment')) $comment .= " <a href='javascript:void(0);' tooltip='Ubah komentar Pesanan' data-id='{$order->id}' onclick='getChangeCommentOrder(this);'><i class='far fa-edit'></i></a>";
+                    if (auth()->user()->can('order.comment')) $comment .= " <a href='javascript:void(0);' tooltip='Ubah komentar Servis' data-id='{$order->id}' onclick='getChangeCommentOrder(this);'><i class='far fa-edit'></i></a>";
                 }
 
                 return $comment;
@@ -175,7 +175,7 @@ class CustomerController extends Controller
                 $status = "<a href='javascript:void(0);' class='badge {$statusClass}'>{$statusText}</a>";
 
                 if (auth()->user()) {
-                    if (auth()->user()->can('order.status')) $status = "<a href='javascript:void(0);' class='badge {$statusClass}' tooltip='Ubah status pesanan' data-id='{$order->id}' onclick='getChangeStatusOrder(this);'>{$statusText}</a>";
+                    if (auth()->user()->can('order.status')) $status = "<a href='javascript:void(0);' class='badge {$statusClass}' tooltip='Ubah status servis' data-id='{$order->id}' onclick='getChangeStatusOrder(this);'>{$statusText}</a>";
                 }
 
                 return $status;
@@ -210,10 +210,10 @@ class CustomerController extends Controller
 
                 if (auth()->user()) {
                     if (auth()->user()->can('order.view')) $action .= "<a href='{$url_history}' class='btn btn-icon btn-primary' tooltip='Riwayat Perubahan'><i class='ion-flash'></i></a>&nbsp;";
-                    // if (auth()->user()->can('order.view')) $action .= "<a href='{$url_whatsapp}' target='_blank' class='btn btn-icon btn-warning' tooltip='Kirim WA Pesanan'><i class='ion-social-whatsapp-outline'></i></a>&nbsp;";
-                    if (auth()->user()->can('order.view')) $action .= "<a href='{$url_print}' target='_blank' class='btn btn-icon btn-dark' tooltip='Print Pesanan'><i class='fas fa-print'></i></a>&nbsp;";
-                    if (auth()->user()->can('order.update')) $action .= "<a href='javascript:void(0)' class='btn btn-icon btn-primary' tooltip='Perbarui Pesanan' data-id='{$order->id}' onclick='getUpdateOrder(this);'><i class='far fa-edit'></i></a>&nbsp;";
-                    if (auth()->user()->can('order.delete')) $action .= "<a href='javascript:void(0)' class='btn btn-icon btn-danger' tooltip='Hapus Pesanan' data-id='{$order->id}' onclick='deleteOrder(this);'><i class='fas fa-trash'></i></a>&nbsp;";
+                    // if (auth()->user()->can('order.view')) $action .= "<a href='{$url_whatsapp}' target='_blank' class='btn btn-icon btn-warning' tooltip='Kirim WA Servis'><i class='ion-social-whatsapp-outline'></i></a>&nbsp;";
+                    if (auth()->user()->can('order.view')) $action .= "<a href='{$url_print}' target='_blank' class='btn btn-icon btn-dark' tooltip='Print Servis'><i class='fas fa-print'></i></a>&nbsp;";
+                    if (auth()->user()->can('order.update')) $action .= "<a href='javascript:void(0)' class='btn btn-icon btn-primary' tooltip='Perbarui Servis' data-id='{$order->id}' onclick='getUpdateOrder(this);'><i class='far fa-edit'></i></a>&nbsp;";
+                    if (auth()->user()->can('order.delete')) $action .= "<a href='javascript:void(0)' class='btn btn-icon btn-danger' tooltip='Hapus Servis' data-id='{$order->id}' onclick='deleteOrder(this);'><i class='fas fa-trash'></i></a>&nbsp;";
                 }
 
                 return $action;
