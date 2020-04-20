@@ -6,6 +6,9 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', 'Auth\LoginController@login')->name('login');
 });
 
+Route::get('/customers/{customer:phone}/view', 'CustomerController@detailView')->name('customers.detail.view');
+Route::get('/{customer:phone}/orders/view', 'CustomerController@customerOrders')->name('customers.orders.view')->middleware('ajax');
+
 // route auth
 Route::middleware('auth')->group(function () {
     Route::get('/', 'DashboardController@index')->name('dashboard');

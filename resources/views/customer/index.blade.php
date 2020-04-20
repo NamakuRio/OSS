@@ -189,7 +189,7 @@
                     { data: 'action' },
                 ],
                 order: [
-                    [5, 'desc']
+                    [6, 'desc']
                 ]
             });
         }

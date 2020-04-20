@@ -429,7 +429,7 @@
                     { data: 'action' },
                 ],
                 order: [
-                    [11, 'desc']
+                    [12, 'desc']
                 ],
                 columnDefs: [{
                     targets: [5],
@@ -483,7 +483,7 @@
                     { data: 'action' },
                 ],
                 order: [
-                    [11, 'desc']
+                    [12, 'desc']
                 ],
                 columnDefs: [{
                     targets: [5],
