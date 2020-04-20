@@ -207,7 +207,7 @@ class OrderController extends Controller
                 $url_print = route('invoice.print', $order);
 
                 if(auth()->user()->can('order.view')) $action .= "<a href='{$url_history}' class='btn btn-icon btn-primary' tooltip='Riwayat Perubahan'><i class='ion-flash'></i></a>&nbsp;";
-                if(auth()->user()->can('order.view')) $action .= "<a href='{$url_whatsapp}' target='_blank' class='btn btn-icon btn-warning' tooltip='Kirim WA Pesanan'><i class='ion-social-whatsapp-outline'></i></a>&nbsp;";
+                // if(auth()->user()->can('order.view')) $action .= "<a href='{$url_whatsapp}' target='_blank' class='btn btn-icon btn-warning' tooltip='Kirim WA Pesanan'><i class='ion-social-whatsapp-outline'></i></a>&nbsp;";
                 if(auth()->user()->can('order.view')) $action .= "<a href='{$url_print}' target='_blank' class='btn btn-icon btn-dark' tooltip='Print Pesanan'><i class='fas fa-print'></i></a>&nbsp;";
                 if(auth()->user()->can('order.update')) $action .= "<a href='javascript:void(0)' class='btn btn-icon btn-primary' tooltip='Perbarui Pesanan' data-id='{$order->id}' onclick='getUpdateOrder(this);'><i class='far fa-edit'></i></a>&nbsp;";
                 if(auth()->user()->can('order.delete')) $action .= "<a href='javascript:void(0)' class='btn btn-icon btn-danger' tooltip='Hapus Pesanan' data-id='{$order->id}' onclick='deleteOrder(this);'><i class='fas fa-trash'></i></a>&nbsp;";

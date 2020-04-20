@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Customer;
 use App\Models\Order;
 
 if (!function_exists('getCost')) {
@@ -53,10 +54,29 @@ if (!function_exists('setWhatsAppUrl')) {
                 break;
         }
 
-        $text = "*OSS Service Center*\n\n*--Rincian Pelanggan--*\nNIK : {$order->customer->nik}\nNama : {$order->customer->name}\nTanggal Lahir : ".$order->customer->date_of_birth->format('Y-m-d')."\nNo. HP : {$order->customer->phone}\n\n*--Rincian Pesanan--*\nNo. Pesanan : {$order->id}\nJenis Pesanan : " . strtoupper($order->type) . "\nMerek : {$order->merk}\nWarna : {$order->color}\nKeluhan : {$order->complaint}\nKelengkapan : {$order->completeness}\nHarga : *Rp. " . number_format($order->cost) . "*\nKomentar : {$order->comment}\nStatus : {$status}";
+        $text = "*OSS Service Center*\n\n*--Rincian Pelanggan--*\nID Pelanggan : {$order->customer->id}\nNIK : {$order->customer->nik}\nNama : {$order->customer->name}\nTanggal Lahir : ".$order->customer->date_of_birth->format('Y-m-d')."\nNo. HP : {$order->customer->phone}\n\n*--Rincian Pesanan--*\nID Pesanan : {$order->id}\nJenis Pesanan : " . strtoupper($order->type) . "\nMerek : {$order->merk}\nWarna : {$order->color}\nKeluhan : {$order->complaint}\nKelengkapan : {$order->completeness}\nHarga : *Rp. " . number_format($order->cost) . "*\nKomentar : {$order->comment}\nStatus : {$status}";
         $text_url = urlencode($text);
 
         $url = "https://api.whatsapp.com/send?phone={$phone}&text={$text_url}";
+
+        return $url;
+    }
+}
+
+if (!function_exists('setWhatsAppUrlV2')) {
+
+    /**
+     * description
+     *
+     * @param
+     * @return
+     */
+    function setWhatsAppUrlV2(Customer $customer)
+    {
+        $text = "*OSS Service Center*\n\n*--Rincian Pelanggan--*\nID Pelanggan : {$customer->id}\nNIK : {$customer->nik}\nNama : {$customer->name}\nTanggal Lahir : ".$customer->date_of_birth->format('Y-m-d')."\nNo. HP : {$customer->phone}\n\nUntuk melihat data pesanan Anda dapat membuka link berikut ini : " . route('customers.detail.view', ['customer' => $customer]);
+        $text_url = urlencode($text);
+
+        $url = "https://api.whatsapp.com/send?phone={$customer->phone}&text={$text_url}";
 
         return $url;
     }

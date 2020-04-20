@@ -92,7 +92,10 @@ class CustomerController extends Controller
             ->addColumn('action', function ($customer) {
                 $action = "";
 
-                if (auth()->user()->can('customer.view')) $action .= "<a href='https://api.whatsapp.com/send?phone={$customer->phone}' target='_blank' class='btn btn-icon btn-warning' tooltip='Kirim WA Pelanggan'><i class='ion-social-whatsapp-outline'></i></a>&nbsp;";
+                $url_whatsapp = setWhatsAppUrlV2($customer);
+
+                if (auth()->user()->can('customer.view')) $action .= "<a href='https://api.whatsapp.com/send?phone={$customer->phone}' target='_blank' class='btn btn-icon btn-dark' tooltip='Kirim Custom WA Pelanggan'><i class='ion-social-whatsapp-outline'></i></a>&nbsp;";
+                if (auth()->user()->can('customer.view')) $action .= "<a href='{$url_whatsapp}' target='_blank' class='btn btn-icon btn-warning' tooltip='Kirim WA Link Data Pelanggan'><i class='ion-social-whatsapp-outline'></i></a>&nbsp;";
                 if (auth()->user()->can('customer.view')) $action .= "<a href='" . route('customers.detail', ['customer' => $customer]) . "' class='btn btn-icon btn-info' tooltip='Detail Pelanggan'><i class='fas fa-server'></i></a>&nbsp;";
                 if (auth()->user()->can('customer.update')) $action .= "<a href='javascript:void(0)' class='btn btn-icon btn-primary' tooltip='Perbarui Pelanggan' data-id='{$customer->id}' onclick='getUpdateCustomer(this);'><i class='far fa-edit'></i></a>&nbsp;";
                 if (auth()->user()->can('customer.delete')) $action .= "<a href='javascript:void(0)' class='btn btn-icon btn-danger' tooltip='Hapus Pelanggan' data-id='{$customer->id}' onclick='deleteCustomer(this);'><i class='fas fa-trash'></i></a>&nbsp;";
@@ -207,7 +210,7 @@ class CustomerController extends Controller
 
                 if (auth()->user()) {
                     if (auth()->user()->can('order.view')) $action .= "<a href='{$url_history}' class='btn btn-icon btn-primary' tooltip='Riwayat Perubahan'><i class='ion-flash'></i></a>&nbsp;";
-                    if (auth()->user()->can('order.view')) $action .= "<a href='{$url_whatsapp}' target='_blank' class='btn btn-icon btn-warning' tooltip='Kirim WA Pesanan'><i class='ion-social-whatsapp-outline'></i></a>&nbsp;";
+                    // if (auth()->user()->can('order.view')) $action .= "<a href='{$url_whatsapp}' target='_blank' class='btn btn-icon btn-warning' tooltip='Kirim WA Pesanan'><i class='ion-social-whatsapp-outline'></i></a>&nbsp;";
                     if (auth()->user()->can('order.view')) $action .= "<a href='{$url_print}' target='_blank' class='btn btn-icon btn-dark' tooltip='Print Pesanan'><i class='fas fa-print'></i></a>&nbsp;";
                     if (auth()->user()->can('order.update')) $action .= "<a href='javascript:void(0)' class='btn btn-icon btn-primary' tooltip='Perbarui Pesanan' data-id='{$order->id}' onclick='getUpdateOrder(this);'><i class='far fa-edit'></i></a>&nbsp;";
                     if (auth()->user()->can('order.delete')) $action .= "<a href='javascript:void(0)' class='btn btn-icon btn-danger' tooltip='Hapus Pesanan' data-id='{$order->id}' onclick='deleteOrder(this);'><i class='fas fa-trash'></i></a>&nbsp;";
