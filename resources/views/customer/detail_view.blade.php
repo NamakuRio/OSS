@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <section class="section">
+    <section class="section" @if(Agent::isMobile()) style="margin-left:-30px;margin-right:-30px;" @endif>
         <div class="section-header">
             <h1>Detail Pelanggan</h1>
         </div>

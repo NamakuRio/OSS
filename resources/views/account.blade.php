@@ -15,7 +15,7 @@
         <div class="section-body">
             <div class="row mt-sm-4">
                 <div class="col-12 col-md-12 col-lg-12">
-                    <div class="card">
+                    <div class="card" @if(Agent::isMobile()) style="margin-left:-30px;margin-right:-30px;" @endif>
                         <form method="post" class="needs-validation" novalidate="" action="javascript:void(0)" id="form-update-account" enctype="multipart/form-data">
                             <div class="card-header">
                                 <h4>Perbarui Akun</h4>

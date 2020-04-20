@@ -22,7 +22,7 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card" @if(Agent::isMobile()) style="margin-left:-30px;margin-right:-30px;" @endif>
                         <div class="card-header">
                             <h4>Daftar Pengguna</h4>
                             @can ('user.create')

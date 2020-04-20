@@ -25,7 +25,7 @@
         <div class="section-body">
             <div class="row mt-sm-4">
                 <div class="col-12 col-md-12 col-lg-5">
-                    <div class="card profile-widget" style="margin-top:0;">
+                    <div class="card profile-widget" @if(Agent::isMobile()) style="margin-left:-30px;margin-right:-30px;margin-top:0;" @else style="margin-top:0;" @endif>
                         <div class="profile-widget-header">
                             <div class="profile-widget-items">
                                 <div class="profile-widget-item">
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-12 col-lg-7">
-                    <div class="card">
+                    <div class="card" @if(Agent::isMobile()) style="margin-left:-30px;margin-right:-30px;" @endif>
                         <div class="card-header">
                             <h4>Riwayat Servis</h4>
                         </div>

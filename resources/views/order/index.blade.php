@@ -21,7 +21,7 @@
         <div class="section-body">
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card" @if(Agent::isMobile()) style="margin-left:-30px;margin-right:-30px;" @endif>
                         <div class="card-header">
                             <h4>Daftar Servis (Proses)</h4>
                             @can ('order.create')
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card" @if(Agent::isMobile()) style="margin-left:-30px;margin-right:-30px;" @endif>
                         <div class="card-header">
                             <h4>Daftar Servis (Semua)</h4>
                         </div>
