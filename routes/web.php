@@ -6,8 +6,8 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', 'Auth\LoginController@login')->name('login');
 });
 
-Route::get('/customers/{customer:phone}/view', 'CustomerController@detailView')->name('customers.detail.view');
-Route::get('/{customer:phone}/orders/view', 'CustomerController@customerOrders')->name('customers.orders.view')->middleware('ajax');
+Route::get('/customers/{customer}/view', 'CustomerController@detailView')->name('customers.detail.view');
+Route::get('/{customer}/orders/view', 'CustomerController@customerOrders')->name('customers.orders.view')->middleware('ajax');
 
 // route auth
 Route::middleware('auth')->group(function () {
@@ -22,8 +22,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/data', 'CustomerController@data')->name('.data')->middleware('ajax');
         Route::post('/show', 'CustomerController@show')->name('.show')->middleware('ajax');
 
-        Route::get('/{customer:phone}/orders', 'CustomerController@customerOrders')->name('.orders')->middleware('ajax');
-        Route::get('/{customer:phone}', 'CustomerController@detail')->name('.detail');
+        Route::get('/{customer}/orders', 'CustomerController@customerOrders')->name('.orders')->middleware('ajax');
+        Route::get('/{customer}', 'CustomerController@detail')->name('.detail');
     });
 
     Route::name('orders')->prefix('orders')->group(function () {
