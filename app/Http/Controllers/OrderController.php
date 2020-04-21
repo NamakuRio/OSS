@@ -111,9 +111,17 @@ class OrderController extends Controller
     {
         if (checkPermission('order.view')) return response()->json(['status' => 'error', 'message' => 'Anda tidak dapat mengakses ini.']);
 
-        $orders = Order::all();
+        $checkViewData = [];
+
+        if(auth()->user()->can('order.handphone')) array_push($checkViewData, "handphone");
+        if(auth()->user()->can('order.laptop')) array_push($checkViewData, "laptop");
+        if(auth()->user()->can('order.printer')) array_push($checkViewData, "printer");
+        if(auth()->user()->can('order.komputer')) array_push($checkViewData, "komputer");
+        if(auth()->user()->can('order.powerbank')) array_push($checkViewData, "powerbank");
+
+        $orders = Order::whereIn('type', $checkViewData)->get();
         if(request()->filter == 1){
-            $orders = Order::where('status', 1)->get();
+            $orders = Order::where('status', 1)->whereIn('type', $checkViewData)->get();
         }
         $orders->load('customer', 'user');
 

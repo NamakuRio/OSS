@@ -111,7 +111,19 @@ class CustomerController extends Controller
     {
         // if (checkPermission('customer.view')) return response()->json(['status' => 'error', 'message' => 'Anda tidak dapat mengakses ini.']);
 
-        $orders = $customer->orders;
+        $checkViewData = [];
+
+        if(auth()->user()) {
+            if(auth()->user()->can('order.handphone')) array_push($checkViewData, "handphone");
+            if(auth()->user()->can('order.laptop')) array_push($checkViewData, "laptop");
+            if(auth()->user()->can('order.printer')) array_push($checkViewData, "printer");
+            if(auth()->user()->can('order.komputer')) array_push($checkViewData, "komputer");
+            if(auth()->user()->can('order.powerbank')) array_push($checkViewData, "powerbank");
+
+            $orders = $customer->orders()->whereIn('type', $checkViewData)->get();
+        } else {
+            $orders = $customer->orders;
+        }
 
         return DataTables::of($orders)
             ->editColumn('type', function ($order) {
