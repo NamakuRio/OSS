@@ -1,139 +1,166 @@
 <!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
+<html>
     <head>
         @include('layouts._partials._head')
-        @include('layouts._partials._styles')
+        <style type="text/css">
+            body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Calibri"; font-size:x-small }
+            a.comment-indicator:hover + comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em;  }
+            a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  }
+            comment { display:none;  }
+        </style>
     </head>
-
-    <body class="layout-3">
-        <div id="app">
-            <div class="main-wrapper container">
-                <!-- Main Content -->
-                <div class="main-content" style="padding-top:30px">
-                    <section class="section">
-                        <div class="section-body">
-                            <div class="invoice">
-                                <div class="invoice-print">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="invoice-title">
-                                                <h2>Invoice</h2>
-                                                <div class="invoice-number">No. Nota #{{ $order->id }}</div>
-                                            </div>
-                                            <hr>
-                                            <div class="row">
-                                                <div class="col-6">
-                                                    <div class="row">
-                                                        <div class="col-4"><strong>No. Nota</strong></div>
-                                                        <div class="col-8">: {{ $order->id }}</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4"><strong>Hari/Tanggal</strong></div>
-                                                        <div class="col-8">: {{ $order->created_at->format('d/m/Y') }}</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4"><strong>Nama Pelanggan</strong></div>
-                                                        <div class="col-8">: {{ $order->customer->name }}</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4"><strong>No. Handphone</strong></div>
-                                                        <div class="col-8">: {{ $order->customer->phone }}</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4"><strong>Jenis Service</strong></div>
-                                                        <div class="col-8">: {{ strtoupper($order->type) }}</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4"><strong>Merk/Type</strong></div>
-                                                        <div class="col-8">: {{ $order->merk }}</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4"><strong>Warna</strong></div>
-                                                        <div class="col-8">: {{ $order->color }}</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4"><strong>Keluhan</strong></div>
-                                                        <div class="col-8">: {{ $order->complaint }}</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4"><strong>Perlengkapan</strong></div>
-                                                        <div class="col-8">: {{ $order->completeness }}</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4"><strong>Biaya</strong></div>
-                                                        <div class="col-8">: RP. {{ number_format($order->cost) }}</div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-6">
-                                                    <div class="row">
-                                                        <div class="col-4"><strong></strong></div>
-                                                        <div class="col-4"></div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4">... LCD</div>
-                                                        <div class="col-4">... Signal</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4">... TS</div>
-                                                        <div class="col-4">... MOUSEPAD</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4">... BT</div>
-                                                        <div class="col-4">... KEYBOARD</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4">... WIFI</div>
-                                                        <div class="col-4">... SPEAKER</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4">... CHARGER</div>
-                                                        <div class="col-4">... WINDOWS</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4">... MIC</div>
-                                                        <div class="col-4">... BATERAI</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4">... CAMERA</div>
-                                                        <div class="col-4">... ENGSEL</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4">... RAM</div>
-                                                        <div class="col-4">... HDD</div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-4"></div>
-                                                        <div class="col-4"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-3 text-center">
-                                            <h6>PENERIMA</h6>
-                                            <p class="mt-5 pt-5">{{ $order->user->name }}</p>
-                                        </div>
-                                        <div class="col-6">
-                                            <ul style="text-align:justify">
-                                                <li>Barang yang telah selesai di perbaiki/tidak dapat diperbaiki jika tidak diambil selama 3 bulan bukan tanggung jawab kami.</li>
-                                                <li>1 tahun tidak diambil menjadi hak kami.</li>
-                                                <li>Garansi ditentukan oleh teknisi dan disesuaikan dengan beberapa hal dari barang tersebut.</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-3 text-center">
-                                            <h6>PELANGGAN</h6>
-                                            <p class="mt-5 pt-5">{{ $order->customer->name }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
+    <body>
+        <table cellspacing="0" border="0">
+            <colgroup width="131"></colgroup>
+            <colgroup width="12"></colgroup>
+            <colgroup width="248"></colgroup>
+            <colgroup width="103"></colgroup>
+            <colgroup width="10"></colgroup>
+            <colgroup width="113"></colgroup>
+            <colgroup width="68"></colgroup>
+            <tr>
+                <td colspan=7 height="93" align="left" valign=bottom>
+                    <font size=3 color="#000000">
+                        <img src="@asset('images/print/logo.jpeg')" width=400 height=120 hspace=140 vspace=0>
+                    </font>
+                </td>
+            </tr>
+            <tr>
+                <td height="17" align="left" valign=bottom><b><font size=3 color="#000000">No. Nota</font></b></td>
+                <td align="left" valign=bottom><font size=3 color="#000000">:</font></td>
+                <td align="left" valign=middle sdval="6032" sdnum="1033;0;0"><font size=3 color="#000000">{{ $order->id }}</font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+            </tr>
+            <tr>
+                <td height="25" align="left" valign=middle><b><font size=3 color="#000000">Hari/Tanggal</font></b></td>
+                <td align="left" valign=middle><b><font size=3 color="#000000">:</font></b></td>
+                <td align="left" valign=middle sdval="43942" sdnum="1033;1033;M/D/YYYY"><font size=3 color="#000000">{{ $order->created_at->format('d/m/Y') }}</font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. LCD</font></td>
+                <td align="left" valign=middle><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. SIGNAL</font></td>
+                <td rowspan=8 align="center" valign=middle><b><font size=3 color="#000000" style="writing-mode:tb;">Info kontak service :<br>0819 1461 3000</font></b></td>
+            </tr>
+            <tr>
+                <td height="25" align="left" valign=middle><b><font size=3 color="#000000">Nama Pelanggan</font></b></td>
+                <td align="left" valign=middle><b><font size=3 color="#000000">:</font></b></td>
+                <td align="left" valign=middle><font size=3 color="#000000">{{ $order->customer->name }}</font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. TS</font></td>
+                <td align="left" valign=middle><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. MOUSEPAD</font></td>
+                </tr>
+            <tr>
+                <td height="25" align="left" valign=middle><b><font size=3 color="#000000">No. Handphone</font></b></td>
+                <td align="left" valign=middle><b><font size=3 color="#000000">:</font></b></td>
+                <td align="left" valign=middle sdval="0" sdnum="1033;"><font size=3 color="#000000">{{ $order->customer->phone }}</font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. BT</font></td>
+                <td align="left" valign=middle><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. KEYBOARD</font></td>
+                </tr>
+            <tr>
+                <td height="25" align="left" valign=middle><b><font size=3 color="#000000">Jenis Service</font></b></td>
+                <td align="left" valign=middle><b><font size=3 color="#000000">:</font></b></td>
+                <td align="left" valign=middle><font size=3 color="#000000">{{ strtoupper($order->type) }}</font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. WIFI</font></td>
+                <td align="left" valign=middle><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. SPEAKER</font></td>
+                </tr>
+            <tr>
+                <td height="25" align="left" valign=middle><b><font size=3 color="#000000">Merk/Tipe</font></b></td>
+                <td align="left" valign=middle><b><font size=3 color="#000000">:</font></b></td>
+                <td align="left" valign=middle><font size=3 color="#000000">{{ $order->merk }}</font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. CHARGER</font></td>
+                <td align="left" valign=middle><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. WINDOWS</font></td>
+                </tr>
+            <tr>
+                <td height="25" align="left" valign=middle><b><font size=3 color="#000000">Warna</font></b></td>
+                <td align="left" valign=middle><b><font size=3 color="#000000">:</font></b></td>
+                <td align="left" valign=middle><b><font size=3 color="#000000">{{ $order->color }}</font></b></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. MIC</font></td>
+                <td align="left" valign=middle><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. BATERAI</font></td>
+                </tr>
+            <tr>
+                <td height="25" align="left" valign=middle><b><font size=3 color="#000000">Keluhan</font></b></td>
+                <td align="left" valign=middle><b><font size=3 color="#000000">:</font></b></td>
+                <td align="left" valign=middle><font size=3 color="#000000">{{ $order->complaint }}</font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. CAMERA</font></td>
+                <td align="left" valign=middle><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. ENGSEL</font></td>
+                </tr>
+            <tr>
+                <td height="25" align="left" valign=middle><b><font size=3 color="#000000">Perlengkapan</font></b></td>
+                <td align="left" valign=middle><b><font size=3 color="#000000">:</font></b></td>
+                <td align="left" valign=middle><font size=3 color="#000000">{{ $order->completeness }}</font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. RAM     GB</font></td>
+                <td align="left" valign=middle><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. HDD</font></td>
+                </tr>
+            <tr>
+                <td height="25" align="left" valign=bottom><b><font size=3 color="#000000">Biaya</font></b></td>
+                <td align="left" valign=middle><b><font size=3 color="#000000">:</font></b></td>
+                <td align="left" valign=bottom><font size=3 color="#000000">Rp. {{ number_format($order->cost) }}</font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+            </tr>
+            <tr>
+                <td height="21" align="left" valign=bottom><b><font size=3 color="#000000"><br></font></b></td>
+                <td align="left" valign=middle><b><font size=3 color="#000000"><br></font></b></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+            </tr>
+            <tr>
+                <td height="21" align="left" valign=middle><b><font size=3 color="#000000">PENERIMA</font></b></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td colspan=2 rowspan=6 align="left" valign=top><font size=3 color="#000000">* Barang yang telah selesai di perbaiki/tidak dapat diperbaiki jika tidak diambil selama 3 bulan bukan tanggung jawab kami.<br>* 1 tahun tidak diambil menjadi hak kami.<br>* Garansi ditentukan oleh teknisi dan disesuaikan dengan beberapa hal dari barang tersebut.</font></td>
+                <td align="left" valign=top><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><b><font size=3 color="#000000">PELANGGAN</font></b></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+            </tr>
+            <tr>
+                <td height="21" align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=top><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+            </tr>
+            <tr>
+                <td height="21" align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=top><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+            </tr>
+            <tr>
+                <td height="21" align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=top><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+            </tr>
+            <tr>
+                <td height="21" align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=top><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+            </tr>
+            <tr>
+                <td height="21" align="left" valign=middle><font size=3 color="#000000">{{ $order->user->name }}</font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=top><font size=3 color="#000000"><br></font></td>
+                <td align="left" valign=middle><font size=3 color="#000000">{{ $order->customer->name }}</font></td>
+                <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
+            </tr>
+        </table>
         @include('layouts._partials._scripts')
         @if (!empty($print))
             <script>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="{{ config('app.locale') }}">
+    <head>
+        @include('layouts._partials._head')
+        @include('layouts._partials._styles')
+    </head>
+
+    <body class="layout-3">
+        <div id="app">
+            <div class="main-wrapper container">
+                <!-- Main Content -->
+                <div class="main-content" style="padding-top:30px">
+                    <section class="section">
+                        <div class="section-body">
+                            <div class="invoice">
+                                <div class="invoice-print">
+                                    <div claswes="row">
+                                        <div class="col-12">
+                                            <div class="invoice-title">
+                                                <h2>Invoice</h2>
+                                                <div class="invoice-number">No. Nota #{{ $order->id }}</div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="row">
+                                                        <div class="col-4"><strong>No. Nota</strong></div>
+                                                        <div class="col-8">: {{ $order->id }}</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4"><strong>Hari/Tanggal</strong></div>
+                                                        <div class="col-8">: {{ $order->created_at->format('d/m/Y') }}</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4"><strong>Nama Pelanggan</strong></div>
+                                                        <div class="col-8">: {{ $order->customer->name }}</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4"><strong>No. Handphone</strong></div>
+                                                        <div class="col-8">: {{ $order->customer->phone }}</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4"><strong>Jenis Service</strong></div>
+                                                        <div class="col-8">: {{ strtoupper($order->type) }}</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4"><strong>Merk/Type</strong></div>
+                                                        <div class="col-8">: {{ $order->merk }}</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4"><strong>Warna</strong></div>
+                                                        <div class="col-8">: {{ $order->color }}</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4"><strong>Keluhan</strong></div>
+                                                        <div class="col-8">: {{ $order->complaint }}</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4"><strong>Perlengkapan</strong></div>
+                                                        <div class="col-8">: {{ $order->completeness }}</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4"><strong>Biaya</strong></div>
+                                                        <div class="col-8">: RP. {{ number_format($order->cost) }}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="row">
+                                                        <div class="col-4"><strong></strong></div>
+                                                        <div class="col-4"></div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4">... LCD</div>
+                                                        <div class="col-4">... Signal</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4">... TS</div>
+                                                        <div class="col-4">... MOUSEPAD</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4">... BT</div>
+                                                        <div class="col-4">... KEYBOARD</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4">... WIFI</div>
+                                                        <div class="col-4">... SPEAKER</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4">... CHARGER</div>
+                                                        <div class="col-4">... WINDOWS</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4">... MIC</div>
+                                                        <div class="col-4">... BATERAI</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4">... CAMERA</div>
+                                                        <div class="col-4">... ENGSEL</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4">... RAM</div>
+                                                        <div class="col-4">... HDD</div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-4"></div>
+                                                        <div class="col-4"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-3 text-center">
+                                            <h6>PENERIMA</h6>
+                                            <p class="mt-5 pt-5">{{ $order->user->name }}</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <ul style="text-align:justify">
+                                                <li>Barang yang telah selesai di perbaiki/tidak dapat diperbaiki jika tidak diambil selama 3 bulan bukan tanggung jawab kami.</li>
+                                                <li>1 tahun tidak diambil menjadi hak kami.</li>
+                                                <li>Garansi ditentukan oleh teknisi dan disesuaikan dengan beberapa hal dari barang tersebut.</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-3 text-center">
+                                            <h6>PELANGGAN</h6>
+                                            <p class="mt-5 pt-5">{{ $order->customer->name }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+        @include('layouts._partials._scripts')
+        @if (!empty($print))
+            <script>
+                $(function () {
+                    window.print();
+                });
+            </script>
+        @endif
+    </body>
+</html>
