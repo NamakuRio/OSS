@@ -19,9 +19,9 @@
             <colgroup width="113"></colgroup>
             <colgroup width="68"></colgroup>
             <tr>
-                <td colspan=7 height="93" align="left" valign=bottom>
+                <td colspan=7 height="0" align="left" valign=bottom>
                     <font size=3 color="#000000">
-                        <img src="@asset('images/print/logo.jpg')" width=285 height=100 hspace=200 vspace=0>
+                        <img src="@asset('images/print/logo.jpg')" width=295 height=65 hspace=195 vspace=0>
                     </font>
                 </td>
             </tr>
