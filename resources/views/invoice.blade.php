@@ -21,7 +21,7 @@
             <tr>
                 <td colspan=7 height="93" align="left" valign=bottom>
                     <font size=3 color="#000000">
-                        <img src="@asset('images/print/logo.jpeg')" width=400 height=140 hspace=140 vspace=0>
+                        <img src="@asset('images/print/logo.jpg')" width=285 height=100 hspace=200 vspace=0>
                     </font>
                 </td>
             </tr>
