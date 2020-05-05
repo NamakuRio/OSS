@@ -78,7 +78,7 @@ class CustomerController extends Controller
             ->editColumn('date_of_birth', function ($customer) {
                 $date_of_birth = "";
 
-                $date_of_birth = $customer->date_of_birth->format('Y-m-d');
+                $date_of_birth = $customer->date_of_birth->format('d-m-Y');
 
                 return $date_of_birth;
             })

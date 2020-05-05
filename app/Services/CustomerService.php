@@ -43,7 +43,7 @@ class CustomerService
             return ['status' => 'error', 'message' => 'Pelanggan yang Anda cari tidak ditemukan.', 'data' => ''];
         }
 
-        return ['status' => 'success', 'message' => 'Berhasil mengambil data pelanggan', 'data' => $customer, 'date_of_birth' => $customer->date_of_birth->format('Y-m-d')];
+        return ['status' => 'success', 'message' => 'Berhasil mengambil data pelanggan', 'data' => $customer, 'date_of_birth' => $customer->date_of_birth->format('d-m-Y')];
     }
 
     public function update(Request $request)

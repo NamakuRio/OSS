@@ -155,6 +155,13 @@
         $(function () {
             "use strict";
 
+            if($(".datepicker").length) {
+                $('.datepicker').daterangepicker({
+                    locale: {format: 'DD-MM-YYYY'},
+                    singleDatePicker: true,
+                });
+            }
+
             getCustomers();
 
             @can ('customer.create')
