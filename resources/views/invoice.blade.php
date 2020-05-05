@@ -21,7 +21,7 @@
             <tr>
                 <td colspan=7 height="0" align="left" valign=bottom>
                     <font size=3 color="#000000">
-                        <img src="@asset('images/print/logo.jpg')" width=295 height=65 hspace=195 vspace=0>
+                        <img src="@asset('images/print/logo.jpg')" width=335 height=65 hspace=190 vspace=0>
                     </font>
                 </td>
             </tr>
@@ -41,7 +41,7 @@
                 <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. LCD</font></td>
                 <td align="left" valign=middle><font size=3 color="#000000"><br></font></td>
                 <td align="left" valign=middle><font size=3 color="#000000">&hellip;.. SIGNAL</font></td>
-                <td rowspan=8 align="center" valign=middle><b><font size=3 color="#000000" style="writing-mode:tb;">Info kontak service :<br>0819 1461 3000</font></b></td>
+                <td rowspan=8 align="center" valign=middle><b><font size=3 color="#000000" style="writing-mode:tb;">Info kontak service :<br>Call/WA 0819 1461 3000<br> (024) 8449570</font></b></td>
             </tr>
             <tr>
                 <td height="25" align="left" valign=middle><b><font size=3 color="#000000">Nama Pelanggan</font></b></td>
@@ -120,7 +120,7 @@
             <tr>
                 <td height="21" align="left" valign=middle><b><font size=3 color="#000000">PENERIMA</font></b></td>
                 <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
-                <td colspan=2 rowspan=6 align="left" valign=top><font size=3 color="#000000">* Barang yang telah selesai di perbaiki/tidak dapat diperbaiki jika tidak diambil selama 3 bulan bukan tanggung jawab kami.<br>* 1 tahun tidak diambil menjadi hak kami.<br>* Garansi ditentukan oleh teknisi dan disesuaikan dengan beberapa hal dari barang tersebut.</font></td>
+                <td colspan=2 rowspan=6 align="left" valign=top><font size=3 color="#000000" style="font-size:15.5px">* Barang yang telah selesai di perbaiki/tidak dapat diperbaiki jika tidak diambil selama 3 bulan bukan tanggung jawab kami.<br>* 1 tahun tidak diambil menjadi hak kami.<br>* Garansi ditentukan oleh teknisi dan disesuaikan dengan beberapa hal dari barang tersebut.</font></td>
                 <td align="left" valign=top><font size=3 color="#000000"><br></font></td>
                 <td align="left" valign=bottom><b><font size=3 color="#000000">PELANGGAN</font></b></td>
                 <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
@@ -146,13 +146,13 @@
                 <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
                 <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
             </tr>
-            <tr>
+            {{-- <tr>
                 <td height="21" align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
                 <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
                 <td align="left" valign=top><font size=3 color="#000000"><br></font></td>
                 <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
                 <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>
-            </tr>
+            </tr> --}}
             <tr>
                 <td height="21" align="left" valign=middle><font size=3 color="#000000">{{ $order->user->name }}</font></td>
                 <td align="left" valign=bottom><font size=3 color="#000000"><br></font></td>

@@ -45,12 +45,12 @@
                                             <th>Warna</th>
                                             <th>Keluhan</th>
                                             <th>Kelengkapan</th>
+                                            <th width="150">Action</th>
                                             <th>Harga</th>
                                             <th>Komentar Teknisi</th>
                                             <th>Status</th>
                                             <th>Ditambahkan oleh</th>
                                             <th>Ditambahkan</th>
-                                            <th width="150">Action</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -78,12 +78,12 @@
                                             <th>Warna</th>
                                             <th>Keluhan</th>
                                             <th>Kelengkapan</th>
+                                            <th width="150">Action</th>
                                             <th>Harga</th>
                                             <th>Komentar Teknisi</th>
                                             <th>Status</th>
                                             <th>Ditambahkan oleh</th>
                                             <th>Ditambahkan</th>
-                                            <th width="150">Action</th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -290,7 +290,7 @@
                                     <select name="status" id="change-status-order-input" class="form-control" required>
                                         <option value="1">Proses</option>
                                         <option value="2">Batal</option>
-                                        <option value="3">Sudah Dikerjakan</option>
+                                        <option value="3">Sudah Jadi/Bisa Diambil</option>
                                         <option value="4">Sudah Diambil</option>
                                     </select>
                                 </div>
@@ -421,12 +421,12 @@
                     { data: 'color' },
                     { data: 'complaint' },
                     { data: 'completeness' },
+                    { data: 'action' },
                     { data: 'cost' },
                     { data: 'comment' },
                     { data: 'status' },
                     { data: 'user_name' },
                     { data: 'created_at' },
-                    { data: 'action' },
                 ],
                 order: [
                     [12, 'desc']
@@ -475,12 +475,12 @@
                     { data: 'color' },
                     { data: 'complaint' },
                     { data: 'completeness' },
+                    { data: 'action' },
                     { data: 'cost' },
                     { data: 'comment' },
                     { data: 'status' },
                     { data: 'user_name' },
                     { data: 'created_at' },
-                    { data: 'action' },
                 ],
                 order: [
                     [12, 'desc']

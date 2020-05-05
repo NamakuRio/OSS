@@ -233,7 +233,7 @@
                                     <select name="status" id="change-status-order-input" class="form-control" required>
                                         <option value="1">Proses</option>
                                         <option value="2">Batal</option>
-                                        <option value="3">Sudah Dikerjakan</option>
+                                        <option value="3">Sudah Jadi/Bisa Diambil</option>
                                         <option value="4">Sudah Diambil</option>
                                     </select>
                                 </div>

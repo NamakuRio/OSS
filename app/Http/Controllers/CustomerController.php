@@ -171,7 +171,7 @@ class CustomerController extends Controller
 
                     case 3:
                         $statusClass = "badge-primary";
-                        $statusText = "Sudah Dikerjakan";
+                        $statusText = "Sudah Jadi/Bisa Diambil";
                         break;
 
                     case 4:
