@@ -429,10 +429,10 @@
                     { data: 'created_at' },
                 ],
                 order: [
-                    [12, 'desc']
+                    [1, 'desc']
                 ],
                 columnDefs: [{
-                    targets: [5],
+                    targets: [6],
                     createdCell: function(cell) {
                         var $cell = $(cell);
 
@@ -483,10 +483,10 @@
                     { data: 'created_at' },
                 ],
                 order: [
-                    [12, 'desc']
+                    [1, 'desc']
                 ],
                 columnDefs: [{
-                    targets: [5],
+                    targets: [6],
                     createdCell: function(cell) {
                         var $cell = $(cell);
 
